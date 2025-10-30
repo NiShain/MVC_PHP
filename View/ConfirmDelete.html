@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Xác Nhận Xóa Sinh Viên</title>
+    <style>
+        .confirm-box {
+            width: 450px;
+            margin: 50px auto;
+            padding: 20px 30px;
+            border: 2px solid #dc3545; /* Màu đỏ cảnh báo */
+            background-color: #fef0f0; /* Màu nền đỏ nhạt */
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .confirm-box h2 {
+            color: #dc3545;
+        }
+        .confirm-box p { 
+            font-size: 18px; 
+            line-height: 1.5;
+        }
+        /* Tên sinh viên được làm nổi bật */
+        .confirm-box h3 {
+            font-size: 22px;
+            color: #333;
+            margin: 10px 0;
+        }
+        .confirm-box form {
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .confirm-box button {
+            background-color: #dc3545; /* Màu đỏ */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .confirm-box a {
+            display: inline-block;
+            margin-left: 15px;
+            padding: 10px 20px;
+            background-color: #ccc; /* Màu xám */
+            color: black;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="confirm-box">
+        <h2>Bạn có chắc chắn muốn xóa?</h2>
+        <p>Hành động này sẽ xóa vĩnh viễn sinh viên:</p>
+        
+        <h3><?php echo htmlspecialchars($studentDetail->name); ?></h3>
+        <p>(ID: <?php echo htmlspecialchars($studentDetail->id); ?>)</p>
+
+        <form action="C_Student.php?mod3" method="post">
+            
+            <input type="hidden" name="id" value="<?php echo htmlspecialchars($studentDetail->id); ?>">
+            
+            <button type="submit">Có</button>
+        </form>
+        
+        <a href="C_Student.php?mod3">Hủy Bỏ</a>
+    </div>
+
+</body>
+</html>

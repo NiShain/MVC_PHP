@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Thông tin chi tiết sinh viên</title>
+</head>
+<body>
+    <h2>Chi tiết sinh viên:</h2>
+    <?php if (isset($studentDetail) && $studentDetail): ?>
+        <p>Id: <?php echo $studentDetail->id; ?></p>
+        <p>Họ và tên: <b><?php echo $studentDetail->name; ?></b></p>
+        <p>Age: <?php echo $studentDetail->age; ?></p>
+        <p>University: <?php echo $studentDetail->university; ?></p><br>
+    <?php else: ?>
+        <p>Không tìm thấy thông tin sinh viên.</p>
+    <?php endif; ?>
+    <p><a href="javascript:history.back()">Back</a></p>
+</body>
+</html>

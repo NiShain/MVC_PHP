@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chọn Sinh Viên Cần Cập Nhật</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+        tr:hover { background-color: #f1f1f1; }
+        a { color: #007bff; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+    <h1>Chọn Sinh Viên Cần Cập Nhật</h1>
+    
+    <p><a href="../index.html">Quay về trang chủ</a></p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Mã Sinh Viên</th>
+                <th>Họ và Tên</th>
+                <th>Tuổi</th>
+                <th>Trường Đại Học</th>
+                <th>Hành Động</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+                // Vòng lặp này sẽ chạy vì $studentList đã được tạo ở Controller
+                foreach ($studentList as $student) {
+                    echo "<tr>";
+                    echo "<td>" . htmlspecialchars($student->id) . "</td>";
+                    echo "<td>" . htmlspecialchars($student->name) . "</td>";
+                    echo "<td>" . htmlspecialchars($student->age) . "</td>";
+                    echo "<td>" . htmlspecialchars($student->university) . "</td>";
+                    
+                    echo "<td>
+                            <a href='C_Student.php?mod2&id=" . htmlspecialchars($student->id) . "'>
+                                Cập nhật
+                            </a>
+                          </td>";
+                    
+                    echo "</tr>";
+                }
+            ?>
+        </tbody>
+    </table>
+
+</body>
+</html>

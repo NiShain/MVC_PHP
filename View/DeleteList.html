@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Chọn Sinh Viên Cần Xóa</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        table { width: 80%; margin: 20px auto; border-collapse: collapse; }
+        th, td { border: 1px solid #ddd; padding: 12px; }
+        th { background-color: #f2f2f2; text-align: left; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+        tr:hover { background-color: #f1f1f1; }
+        a.delete-btn {
+            color: #dc3545;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 10px;
+            border: 1px solid #dc3545;
+            border-radius: 4px;
+        }
+        a.delete-btn:hover {
+            background-color: #dc3545;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Chọn Sinh Viên Cần Xóa</h1>
+    <p style="text-align: center;"><a href="../index.html">Quay về trang chủ</a></p>
+    <table>
+        <thead>
+            <tr>
+                <th>Họ và Tên Sinh Viên</th>
+                <th style="width: 120px; text-align: center;">Hành Động</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+                // Vòng lặp này chạy vì $studentList được C_Student.php cung cấp
+                foreach ($studentList as $student) {
+                    echo "<tr>";
+                    echo "<td>" . htmlspecialchars($student->name) . "</td>";
+                    
+                    // Link này sẽ trỏ đến trang xác nhận (C_Student.php?mod3&id=...)
+                    echo "<td style='text-align: center;'>
+                            <a class='delete-btn' href='C_Student.php?mod3&id=" . htmlspecialchars($student->id) . "'>
+                                Xóa
+                            </a>
+                          </td>";
+                    
+                    echo "</tr>";
+                }
+            ?>
+        </tbody>
+    </table>
+</body>
+</html>
