@@ -36,12 +36,10 @@
         </thead>
         <tbody>
             <?php
-                // Vòng lặp này chạy vì $studentList được C_Student.php cung cấp
                 foreach ($studentList as $student) {
                     echo "<tr>";
                     echo "<td>" . htmlspecialchars($student->name) . "</td>";
                     
-                    // Link này sẽ trỏ đến trang xác nhận (C_Student.php?mod3&id=...)
                     echo "<td style='text-align: center;'>
                             <a class='delete-btn' href='C_Student.php?mod3&id=" . htmlspecialchars($student->id) . "'>
                                 Xóa

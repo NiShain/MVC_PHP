@@ -33,7 +33,6 @@
         </thead>
         <tbody>
             <?php
-                // Vòng lặp này sẽ chạy vì $studentList đã được tạo ở Controller
                 foreach ($studentList as $student) {
                     echo "<tr>";
                     echo "<td>" . htmlspecialchars($student->id) . "</td>";

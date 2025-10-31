@@ -14,7 +14,6 @@
         .search-form input[type="text"] { width: 300px; padding: 5px; }
         .search-form button { padding: 5px 15px; background-color: #007bff; color: white; border: none; cursor: pointer; }
         
-        /* CSS cho bảng kết quả */
         table { width: 100%; margin-top: 20px; border-collapse: collapse; }
         th, td { border: 1px solid #ddd; padding: 8px; }
         th { background-color: #f2f2f2; }
