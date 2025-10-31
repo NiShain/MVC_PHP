@@ -4,25 +4,27 @@ class C_Student{
     public function invoke(){
         $modelStudent = new M_Student();
         if(isset($_REQUEST['mod1'])){
-            if($_SERVER['REQUEST_METHOD']=='POST'){
-                $id = $_REQUEST['id'] ?? '';
-                $name = $_REQUEST['name'] ?? '';
-                $age = $_REQUEST['age'] ?? 0;
-                $university = $_REQUEST['university'] ?? '';
+            $errors = []; 
 
+            $id = $_REQUEST['id'] ?? '';
+            $name = $_REQUEST['name'] ?? '';
+            $age = $_REQUEST['age'] ?? 0;
+            $university = $_REQUEST['university'] ?? '';
+
+            if($_SERVER['REQUEST_METHOD']=='POST'){
                 $rs = $modelStudent->addStudent($id, $name, $age, $university);
+                
                 if($rs === true){
                     header('Location: C_Student.php');
                     exit;
                 } elseif ($rs === 'exists') {
-                    echo "ID đã tồn tại. Vui lòng nhập ID khác.";
+                    $errors['id'] = "ID đã tồn tại. Vui lòng nhập ID khác.";
                 } else {
-                    echo "Không thể thêm thông tin sinh viên";
+                    $errors['general'] = "Không thể thêm thông tin sinh viên";
                 }
-            } else {
-                include_once('../View/AddStudent.html');
-            }
-        } 
+            } 
+            include_once('../View/AddStudent.html');
+        }
         else if (isset($_REQUEST['mod2'])){
             if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 $id = $_REQUEST['id'] ?? '';
