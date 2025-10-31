@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cập Nhật Sinh Viên</title>
     <style>
-        /* (Bạn có thể dùng chung CSS với file AddStudent) */
+       
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
@@ -34,7 +34,7 @@
             border: 1px solid #ccc;
             border-radius: 4px;
         }
-        /* Style cho trường readonly */
+        
         input[readonly] {
             background-color: #eee;
             cursor: not-allowed;
